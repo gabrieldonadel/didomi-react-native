@@ -948,7 +948,7 @@ extension RNDidomi {
         didomiEventListener.onIntegrationError = { [weak self] event in
             let result = [
                 "integrationName": event.integrationName,
-                "reson": event.reason
+                "reason": event.reason
             ]
             self?.dispatchEvent(withName: "on_integration_error", body: result)
         }
@@ -980,7 +980,9 @@ extension RNDidomi {
             noticeID: json["noticeId"] as? String,
             countryCode: json["countryCode"] as? String,
             regionCode: json["regionCode"] as? String,
-            isUnderage: json["isUnderage"] as? Bool ?? false
+            isUnderage: json["isUnderage"] as? Bool ?? false,
+            sdkPath: json["sdkPath"] as? String,
+            apiPath: json["apiPath"] as? String
         )
     }
     
